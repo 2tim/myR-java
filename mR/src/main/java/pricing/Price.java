@@ -2,17 +2,18 @@ package pricing;
 
 import org.springframework.data.annotation.Id;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Price {
 
     @Id
     private long id;
     private float value;
     private String currency_code;
-    private Map<String, String> current_price;
+    private Current_Price current_price;
+
+    public Price(long id, Current_Price current_price){
+        this.id = id;
+        this.current_price = current_price;
+    }
 
     public float getValue() {
         return value;
@@ -30,13 +31,6 @@ public class Price {
         this.currency_code = currency_code;
     }
 
-//    public Map<Float, String> getCurrentPrice() {
-//
-//        Map<Float, String> currentPrice = new HashMap<>();
-//        currentPrice.put(value, currency_code);
-//        return currentPrice;
-//    }
-
     public long getId() {
         return id;
     }
@@ -44,13 +38,13 @@ public class Price {
     public void setId(long id) {
         this.id = id;
     }
-    //TODO: Add a custom serializer for the price value to match the example.
-    public Map<String, String> getCurrent_price() {
+
+    public Current_Price getCurrent_price() {
         return current_price;
     }
 
-    public void setCurrent_price(Map<String, String> current_price) {
-//        Map.Entry e = new AbstractMap.SimpleEntry<String, AbstractMap.SimpleEntry>(1, "test");
+    public void setCurrent_price(Current_Price current_price) {
         this.current_price = current_price;
     }
+
 }

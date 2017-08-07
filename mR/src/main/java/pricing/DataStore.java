@@ -1,12 +1,16 @@
 package pricing;
 
-import java.util.List;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(collectionResourceRel = "products", path = "products")
+//@EnableMongoRepositories(basePackageClasses = App.class)
+//@RepositoryRestResource(collectionResourceRel = "listing", path = "listing")
 public interface DataStore extends MongoRepository<Price, Long> {
 
     Price findById(Long id);

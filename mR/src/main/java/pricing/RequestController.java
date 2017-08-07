@@ -26,8 +26,6 @@ public class RequestController {
         Map<String, Map> infoMap;
         RestTemplate restTemplate = new RestTemplate();
         log.info(String.format(template, id));
-//        Redsky rs = restTemplate.getForObject(String.format(template, id), Redsky.class);
-//        Product prod = restTemplate.getForObject(String.format(template, id), Product.class);
         ResponseEntity<String> response = restTemplate.getForEntity(String.format(template, id), String.class);
         try {
             infoMap = fieldMapper.readValue(response.getBody(), Map.class);
@@ -40,9 +38,6 @@ public class RequestController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        log.info(prod.getItem().getDescription().getItem().toString());
-//        log.info(rs.getProduct().toString());
-//        return rs.getProduct().getDescription().getItem().toString();
         return "FAILURE";
     }
 
