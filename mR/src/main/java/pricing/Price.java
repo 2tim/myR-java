@@ -2,33 +2,21 @@ package pricing;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * The Price class is defined as a serializable class for representing the return value of the HTTP GET request.
+ * It contains the id and current_price object for representing as part of the Product and for storage in the
+ * local repo. The json equivilent would look like: {"id":13860428,"current_price":{"value":23.42,"currency_code":"USD"}}
+ */
+
 public class Price {
 
     @Id
     private long id;
-    private float value;
-    private String currency_code;
     private Current_Price current_price;
 
     public Price(long id, Current_Price current_price){
         this.id = id;
         this.current_price = current_price;
-    }
-
-    public float getValue() {
-        return value;
-    }
-
-    public void setValue(float value) {
-        this.value = value;
-    }
-
-    public String getCurrency_code() {
-        return currency_code;
-    }
-
-    public void setCurrency_code(String currency_code) {
-        this.currency_code = currency_code;
     }
 
     public long getId() {

@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
+/**
+ * The Pricing Controller acts as a "Controller" via the @RestController annotation. This conveniently tells the Spring
+ * Boot framework to direct API requests to this class for handling. The DataStore instance, "repo" is @Autowired. This
+ * allows for easy setup and use of the dataStore object. Methods are defined below for handling both a GET and PUT
+ * request.
+ */
 @RestController
 public class PricingController {
 
@@ -21,6 +27,13 @@ public class PricingController {
     private Price price;
     private static final Logger log = LoggerFactory.getLogger(PricingController.class);
 
+    /**
+     * The getpricing method is defined as a responder to GET requests that provide a numeric Product ID. The id is
+     * requsted from the redsky site, the title is returned and then the price is reqested from the repo. The data is
+     * combined into a Product object and returned and serialized into JSON in the response.
+     * @param id
+     * @return Product
+     */
     @RequestMapping(value="/products/{id}",
                     method=GET,
                     produces = "application/json;")
@@ -32,6 +45,14 @@ public class PricingController {
         return new Product(id, title, price.getCurrent_price());
     }
 
+    /**
+     * The putpricing method is defined as a responder to PUT requests and processes a JSON object containing the
+     * "value" and "curreny_code". If the currency_code or value fail to process then either the Current_Price
+     * constructor or Price constructor will raise and exception and a error status will be returned.
+     * @param priceInfo
+     * @param id
+     * @return ResponseEntity
+     */
     @RequestMapping(value="/products/{id}",
                     method=PUT,
                     produces = "application/json; charset=UTF-8",

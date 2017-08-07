@@ -3,6 +3,10 @@ package pricing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Magical Spring boot starting place.
+ */
+
 @SpringBootApplication
 public class App {
 

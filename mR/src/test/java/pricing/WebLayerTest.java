@@ -34,6 +34,13 @@ public class WebLayerTest {
     @MockBean
     DataStore repo;
 
+    /**
+     * Tests the basic PUT functionality of the API. The MongoDB connection is actually using a test stub MockBean
+     * to avoid the need for a db while testing in a CI environment.
+     *
+     * Test also produces simple API use example for use in documentation.
+     * @throws Exception
+     */
     @Test
     public void putSomeItems() throws Exception {
 
@@ -55,6 +62,13 @@ public class WebLayerTest {
 
     }
 
+    /**
+     * Tests the basic GET functionality of the API. The redsky API is actually called. The MongoDB connection
+     * is actually using a test stub MockBean to avoid the need for a db while testing in a CI environment.
+     *
+     * Test also produces simple API example for use in documentation.
+     * @throws Exception
+     */
     @Test
     public void getSomeItems() throws Exception {
         Current_Price cp = new Current_Price();

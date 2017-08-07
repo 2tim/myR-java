@@ -2,6 +2,13 @@ package pricing;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * The Product class is defined as a serializable class for representing the return value of the HTTP GET request.
+ * It contains the price from the local repo as well as the title or name from the remote resource. The JSON serialized
+ * representation of this class would look like this:
+ * {"id":13860428,"name":"The Big Lebowski (Blu-ray)","current_price":{"value":23.42,"currency_code":"USD"}}
+ */
+
 public class Product {
     @Id
     private long id;
