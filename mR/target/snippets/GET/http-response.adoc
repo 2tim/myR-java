@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 105
+
+{"id":13860428,"name":"The Big Lebowski (Blu-ray)","current_price":{"value":12.99,"currency_code":"USD"}}
+----

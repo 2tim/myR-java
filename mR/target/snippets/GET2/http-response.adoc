@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 128
+
+{"id":13860429,"name":"SpongeBob SquarePants: SpongeBob's Frozen Face-off","current_price":{"value":22.99,"currency_code":null}}
+----

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,26 +23,21 @@ public class PricingController {
 
     @RequestMapping(value="/products/{id}",
                     method=GET,
-                    produces = "application/json;"
-    )
+                    produces = "application/json;")
     @ResponseBody
     public Product getpricing(@PathVariable(value="id") long id) {
-//        Preconditions.checkNotNull(id);
         RequestController redsky = new RequestController();
         String title = redsky.getTitle(id);
         Price price = repo.findById(id);
         return new Product(id, title, price.getCurrent_price());
     }
+
     @RequestMapping(value="/products/{id}",
                     method=PUT,
                     produces = "application/json; charset=UTF-8",
-                    consumes = "application/json;"
-    )
-//    @ResponseStatus(HttpStatus.OK)
+                    consumes = "application/json;")
     @ResponseBody
     public ResponseEntity putpricing(@RequestBody String priceInfo, @PathVariable(value="id") long id) {
-//        Preconditions.checkNotNull(priceInfo);
-//        Preconditions.checkNotNull(id);
         ObjectMapper fieldMapper = new ObjectMapper();
         log.info(priceInfo);
         try {
@@ -55,11 +49,11 @@ public class PricingController {
         } catch (com.fasterxml.jackson.databind.JsonMappingException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"status\":\"failed\"}");
-        }//com.fasterxml.jackson.databind.JsonMappingException
+        }
         catch (IOException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\":\"failed\"}");
-        }//com.fasterxml.jackson.databind.JsonMappingException
+        }
     }
 
 }

@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ echo '{"value":22.99,"currency_code":"USD"}' | http PUT 'http://localhost:8080/products/13860429' 'Content-Type:application/json'
+----

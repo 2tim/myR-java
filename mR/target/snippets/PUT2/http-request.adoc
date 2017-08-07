@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+PUT /products/13860429 HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 37
+
+{"value":22.99,"currency_code":"USD"}
+----
