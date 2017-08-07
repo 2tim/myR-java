@@ -38,11 +38,20 @@ public class PricingController {
                     method=GET,
                     produces = "application/json;")
     @ResponseBody
-    public Product getpricing(@PathVariable(value="id") long id) {
+    // Product
+    public ResponseEntity getpricing(@PathVariable(value="id") long id) {
         RequestController redsky = new RequestController();
-        String title = redsky.getTitle(id);
-        Price price = repo.findById(id);
-        return new Product(id, title, price.getCurrent_price());
+        try {
+            String title = redsky.getTitle(id);
+            Price price = repo.findById(id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Product(id, title, price.getCurrent_price()));
+        } catch (org.springframework.web.client.HttpClientErrorException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\":\"No Product found\"}");
+        } catch (java.lang.NullPointerException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\":\"No Price found\"}");
+        }
     }
 
     /**
