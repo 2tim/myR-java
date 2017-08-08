@@ -5,8 +5,9 @@ Technology Stack:
   * Java 8
   * Spring Boot Framework for serving/connecting to API and NoSQL DB connection.
   * Spring REST Docs, kinda
-  * MongoDB for data storage.
+  * MongoDB for data storage
   * Gradle for build and package management
+  * Docker for simple deployment with gradle plugin
 
 
 Instructions for Installation:
@@ -20,13 +21,15 @@ All development was done on a Apple PowerBook but should run on other systems Th
   * init gradle with `gradle wrapper`
   * To run go into the project directory and run `./gradlew bootRun`
   * The api should be accessible at http://localhost:8080/products/
+  
+  For a docker build use:
+  * `./gradlew buildImage`
 
 TODO:
 
   * Generate Docs for the API with [Rest Docs](https://espressoprogrammer.com/spring-rest-docs-example-2/)
   * Write negative test cases for controller.
-  * Add packaging for Kubernautes.
-  * Drop tomcat for full ngnix setup.
+  * ~~Add packaging.~~
 
 **API Specification**
 ----
