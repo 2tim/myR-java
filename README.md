@@ -54,11 +54,11 @@ TODO:
 
   If the product does not exist on the redsky site:<br />
 
-    **Content:** `{ "status" : "No Product found" }`
+    **Content:** `{ "status" : "No Product found" }`<br />
 
   If a price is unavailable in the local repository:<br />
-  
-    **Content:** `{ "status" : "No Price found" }`
+
+    **Content:** `{ "status" : "No Price found" }`<br />
 
 * **Sample Call:**
 
