@@ -16,7 +16,9 @@ All development was done on a Apple PowerBook but should run on other systems Th
   * Install MongoDB https://docs.mongodb.com/
   * Ensure Java 8 available
   * clone code from github: https://github.com/2tim/myR-java.git
-  * To run go into the project directory and run gradlew bootRun
+  * cd to mR directory
+  * init gradle with `gradle wrapper`
+  * To run go into the project directory and run `./gradlew bootRun`
   * The api should be accessible at http://localhost:8080/products/
 
 TODO:
