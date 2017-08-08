@@ -51,9 +51,13 @@ TODO:
 * **Error Response:**
 
   * **Code:** 404 NOT_FOUND <br />
+
   If the product does not exist on the redsky site:<br />
+
     **Content:** `{ "status" : "No Product found" }`
+
   If a price is unavailable in the local repository:<br />
+  
     **Content:** `{ "status" : "No Price found" }`
 
 * **Sample Call:**
