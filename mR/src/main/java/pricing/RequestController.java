@@ -1,6 +1,7 @@
 package pricing;
 
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,17 +24,12 @@ public class RequestController {
     public String getTitle(long id) {
 
         ObjectMapper fieldMapper = new ObjectMapper();
-        Map<String, Map> infoMap;
         RestTemplate restTemplate = new RestTemplate();
         log.info(String.format(template, id));
         ResponseEntity<String> response = restTemplate.getForEntity(String.format(template, id), String.class);
         try {
-            infoMap = fieldMapper.readValue(response.getBody(), Map.class);
-            Map<String,Map> productMap = infoMap.get("product");
-            Map<String,Map> itemMap = productMap.get("item");
-            Map<String,String> prodDescrMap = itemMap.get(("product_description"));
-            String title = prodDescrMap.get("title");
-            log.info(title);
+            JsonNode root = fieldMapper.readTree(response.getBody());
+            String title = root.path("product").path("item").path("product_description").path("title").asText();
             return title;
         } catch (IOException e) {
             e.printStackTrace();

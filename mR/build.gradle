@@ -1,9 +1,15 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE")
+        classpath "com.bmuschko:gradle-docker-plugin:3.0.12"
     }
 }
 
@@ -11,6 +17,24 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+apply plugin: "com.bmuschko.docker-remote-api"
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+task createDockerfile(type: Dockerfile) {
+    destFile = project.file('build/mydockerfile/Dockerfile')
+    from 'ubuntu:12.04'
+    maintainer 'Kevin Evans "kevinmevans@gmail.com"'
+}
+
+task buildImage(type: DockerBuildImage) {
+    url = System.env.DOCKER_HOST
+    certPath = new File(System.env.DOCKER_CERT_PATH)
+    dependsOn createDockerfile
+    inputDir = createDockerfile.destFile.parentFile
+    tag = '2tim/myretailimage'
+}
 
 jar {
     baseName = 'myRetail'
