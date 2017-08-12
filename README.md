@@ -27,9 +27,9 @@ All development was done on a Apple PowerBook but should run on other systems Th
 
 TODO:
 
-  * Generate Docs for the API with [Rest Docs](https://espressoprogrammer.com/spring-rest-docs-example-2/)
+  * [Generate Docs for the API with Rest Docs](https://espressoprogrammer.com/spring-rest-docs-example-2/)
   * Write negative test cases for controller.
-  * ~~Add packaging.~~
+  * Add packaging with Docker
 
 **API Specification**
 ----

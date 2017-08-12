@@ -1,6 +1,5 @@
 package pricing;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -9,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.Map;
 
 public class RequestController {
 
@@ -20,6 +18,12 @@ public class RequestController {
     public RequestController() {
 
     }
+
+    /** In production a Class would likely be available for the JSON response to be deserialized with rather than using
+     * ObjectMapper.readTree()
+      * @param id
+     * @return
+     */
 
     public String getTitle(long id) {
 
