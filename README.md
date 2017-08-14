@@ -16,6 +16,9 @@ All development was done on a Apple PowerBook but should run on other systems Th
 
   * Install MongoDB https://docs.mongodb.com/
   * Ensure Java 8 available
+  * Enuse gradle is installed:
+    Mac: `brew install gradle`
+    Ubuntu: `apt install gradle`
   * clone code from github: https://github.com/2tim/myR-java.git
   * cd to mR directory
   * init gradle with `gradle wrapper`
