@@ -1,5 +1,7 @@
 # myRetail
 
+Live Demo available at: http://ec2-13-59-199-234.us-east-2.compute.amazonaws.com:8080/products/
+
 Technology Stack:
 
   * Java 8
