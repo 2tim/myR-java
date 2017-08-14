@@ -22,19 +22,19 @@ apply plugin: "com.bmuschko.docker-remote-api"
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
-task createDockerfile(type: Dockerfile) {
-    destFile = project.file('build/mydockerfile/Dockerfile')
-    from 'ubuntu:12.04'
-    maintainer 'Kevin Evans "kevinmevans@gmail.com"'
-}
-
-task buildImage(type: DockerBuildImage) {
-    url = System.env.DOCKER_HOST
-    certPath = new File(System.env.DOCKER_CERT_PATH)
-    dependsOn createDockerfile
-    inputDir = createDockerfile.destFile.parentFile
-    tag = '2tim/myretailimage'
-}
+//task createDockerfile(type: Dockerfile) {
+//    destFile = project.file('build/mydockerfile/Dockerfile')
+//    from 'ubuntu:12.04'
+//    maintainer 'Kevin Evans "kevinmevans@gmail.com"'
+//}
+//
+//task buildImage(type: DockerBuildImage) {
+//    url = System.env.DOCKER_HOST
+//    certPath = new File(System.env.DOCKER_CERT_PATH)
+//    dependsOn createDockerfile
+//    inputDir = createDockerfile.destFile.parentFile
+//    tag = '2tim/myretailimage'
+//}
 
 jar {
     baseName = 'myRetail'
